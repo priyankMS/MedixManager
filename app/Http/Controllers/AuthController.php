@@ -75,6 +75,7 @@ class AuthController extends Controller
 
             if (Auth::attempt($credentials, $remember)) {
                 $request->session()->regenerate(); // Prevent session fixation attacks
+                toastr()->success('login successfully');
                 return redirect()->route('dashboard')->with('success', 'Login Successful');
             } else {
                 return back()->with('error', 'Invalid login details');
@@ -89,7 +90,7 @@ class AuthController extends Controller
         Auth::logout(); // Log out the user
         $request->session()->invalidate(); // Invalidate the session
         $request->session()->regenerateToken(); // Regenerate the CSRF token
-
+        toastr()->success('logout successfully');
         return redirect()->route('login')->with('success', 'Logout Successful');
     }
 }

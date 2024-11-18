@@ -3,21 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Services\UserService;
 use Illuminate\Http\Request;
 
 class Usercontroller extends Controller
-{
+{  
+    protected $userService;
+
+
+    public function __construct(UserService $userService)
+    {
+        $this->userService=$userService;
+    }
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $user = User::query()
-                ->public();
-        // dd($user);   
-        return $user;
-        //  return view('pages/users',compact('user'));
+       $users = $this->userService->getAll($request);   
+       
+       return view('pages.users.index',compact('users'));
     }
+        
 
     /**
      * Show the form for creating a new resource.

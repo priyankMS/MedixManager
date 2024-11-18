@@ -13,11 +13,18 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a style="padding:10px 20px !important" class="nav-link" href="{{route('dashboard')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
 
+     {{-- total user show  --}}
+    <li class="nav-item active">
+        <a style="padding:10px 20px !important" class="nav-link" href="{{route('users.index')}}">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Users </span></a>
+            {{-- {{ Request::segment(1)}} --}}
+    </li>
     <!-- Divider -->
     <hr class="sidebar-divider">
 

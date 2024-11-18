@@ -29,3 +29,22 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', [DashboardController::class, 'index'])->name('dashboard');
     Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 });
+
+
+Route::get('/api/yash',function (){
+  return 'this is yash controller';
+});
+
+//route with controller 
+Route::post('/api/yash',[Usercontroller::class,'store']);
+
+//resource controller 
+Route::resource('permission',AuthController::class);
+
+//route with parameter
+Route::put('update/{id}',[AuthController::class ,'index'])->name('user.update');
+
+
+// Route::middleware(['auth'])->group(
+//     Route::get();
+// );
