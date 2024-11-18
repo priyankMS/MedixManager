@@ -5,7 +5,7 @@
         <div class="row">
             <section class="header">
                 <div>
-                    <h1>use list </p>
+                    <h1>User List</p>
                 </div>
             </section>
         </div>
